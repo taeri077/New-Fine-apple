@@ -234,7 +234,7 @@
     <div class="w-3 h-3 rounded-full bg-[#22c55e] shadow-[inset_0_1px_1px_rgba(255,255,255,0.5)] border border-black/10"></div>
 </div>
 <div class="font-headline-md text-headline-md text-on-surface flex items-center gap-2 font-bold tracking-tight"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD-jnvK0YyxqE5Npjfdw4xwtG7IU8san7FVmie5SuKv1fzvTbneIpgOzowppRfAusTVFGs5geZuFV0jwwvSZvH2lulCBjEbcghd-v7t3l9UoAr0l2jeVwWphRk6XOcL3oJ6--uGeGlYEh5xTrqooHUZ3-SMhokHhpiXgTfQ_IeZuAp791Q6RFdzJBIGL9NuvDDHJxhPlq9PZsHRTDhX5oIe7ajyhX7s_t5wvg5jeEKD1aKzIKLrbSVsjiscYtsgZcenmY" alt="Fine-apple Logo" class="w-8 h-8 object-contain"><span class="">Fine-apple</span></div></div>
-<div class="flex items-center gap-md"><button class="jelly-button text-on-primary font-bold py-1 px-4 rounded-full shadow-sm text-[14px] flex items-center justify-center">EN/KR</button></div>
+<div class="flex items-center gap-md"><button class="lang-toggle-btn jelly-button text-on-primary font-bold py-1 px-4 rounded-full shadow-sm text-[14px] flex items-center justify-center">EN / KO</button></div>
 </header>
 <div class="flex flex-1 overflow-hidden">
 <!-- SideNavBar -->
@@ -297,11 +297,11 @@
 <div class="grid grid-cols-1 md:grid-cols-3 gap-lg h-full">
 <!-- Column 1: Data Manager -->
 <div class="glass-panel rounded-md flex flex-col p-md gap-md">
-<h2 class="font-headline-md text-headline-md text-on-surface border-b border-black/10 pb-sm mb-sm">Data Manager</h2>
+<h2 class="font-headline-md text-headline-md text-on-surface border-b border-black/10 pb-sm mb-sm" data-i18n="title_data_manager">Data Manager</h2>
 <div class="recessed-well flex-1 rounded-DEFAULT p-md flex flex-col items-center justify-center border border-white/50 relative group overflow-hidden">
 <div class="absolute inset-0 border-2 border-dashed border-primary/30 rounded-DEFAULT m-2 pointer-events-none group-hover:border-primary/60 transition-colors"></div>
 <span class="material-symbols-outlined text-[48px] text-primary/50 mb-sm">upload_file</span>
-<p class="font-body-lg text-on-surface-variant text-center">Drop .md files here<br><span class="font-label-mono text-label-mono opacity-70">or click to browse</span></p>
+<p class="font-body-lg text-on-surface-variant text-center"><span data-i18n="drop_md_files">Drop .md files here</span><br><span class="font-label-mono text-label-mono opacity-70" data-i18n="click_to_browse">or click to browse</span></p>
 </div>
 <div class="recessed-well h-64 rounded-DEFAULT p-sm border border-white/50 overflow-y-auto font-label-mono text-label-mono">
 <table class="w-full text-left border-collapse">
@@ -330,7 +330,7 @@
 </div>
 <!-- Column 2: Training Config -->
 <div class="glass-panel rounded-md flex flex-col p-md gap-md">
-<h2 class="font-headline-md text-headline-md text-on-surface border-b border-black/10 pb-sm mb-sm">Training Config</h2>
+<h2 class="font-headline-md text-headline-md text-on-surface border-b border-black/10 pb-sm mb-sm" data-i18n="title_training_config">Training Config</h2>
 <div class="flex-1 flex flex-col gap-lg overflow-y-auto pr-sm">
 <!-- Sliders -->
 <div class="flex flex-col gap-sm">
@@ -362,9 +362,9 @@
 <input class="aqua-slider" max="10" min="1" type="range" value="3">
 </div>
 </div>
-<button class="w-full jelly-button text-on-primary font-display-lg text-[20px] font-bold py-sm rounded-lg shadow-md mt-auto flex justify-center items-center gap-3 group">
+<button id="start-finetuning-btn" class="w-full jelly-button text-on-primary font-display-lg text-[20px] font-bold py-sm rounded-lg shadow-md mt-auto flex justify-center items-center gap-3 group">
 <span class="material-symbols-outlined text-[24px] group-hover:scale-110 transition-transform">bolt</span>
-                        START FINE-TUNING
+                        <span data-i18n="btn_start_finetuning">START FINE-TUNING</span>
                     </button>
 </div>
 <!-- Column 3: Real-time Monitor -->
@@ -419,6 +419,10 @@
 <a class="text-on-secondary-fixed-variant hover:text-primary transition-colors" href="#">Feedback</a>
 </div>
 </footer>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/app.js"></script>
+</body></html>
 
 
 
