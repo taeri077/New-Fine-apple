@@ -267,7 +267,7 @@
                     </a>
 </li>
 </nav>
-<main class="flex-1 ml-64 h-[calc(100vh-64px)] overflow-hidden">
+<main id="main-content" class="flex-1 h-[calc(100vh-64px)] overflow-hidden" style="margin-left: 256px;">
 <iframe id="content" src="pages/training.html" class="w-full h-full border-none"></iframe>
 </main>
 </div>
@@ -299,9 +299,12 @@
 function toggleMenu() {
   const s = document.getElementById('sidebar');
   s.style.transform = s.style.transform === 'translateX(0px)' ? 'translateX(-100%)' : 'translateX(0px)';
+  const m = document.getElementById('main-content');
+  m.style.marginLeft = s.style.transform === 'translateX(0px)' ? '256px' : '0px';
 }
 if (window.innerWidth >= 768) {
   document.getElementById('sidebar').style.transform = 'translateX(0px)';
 }
+document.getElementById('main-content').style.marginLeft = window.innerWidth >= 768 ? '256px' : '0px';
 </script>
 </body></html>
