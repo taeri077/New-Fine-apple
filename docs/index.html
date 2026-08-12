@@ -218,6 +218,7 @@
     </style>
 </head>
 <body class="min-h-screen flex flex-col font-body-lg text-body-lg text-on-surface">
+<div id="sidebar-overlay" onclick="toggleMenu()" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); z-index:45;"></div>
 <!-- TopAppBar -->
 <header class="bg-surface-variant dark:bg-inverse-surface text-primary dark:text-inverse-primary top-0 border-b border-white/50 bg-gradient-to-b from-surface-bright to-surface-dim shadow-sm flex justify-between items-center w-full px-lg py-sm z-50 sticky">
 <div class="flex items-center gap-md"><div class="flex gap-xs items-center mr-2">
@@ -230,7 +231,7 @@
 </header>
 <div class="flex flex-1 overflow-hidden">
 <!-- SideNavBar -->
-<nav id="sidebar" style="transform: translateX(-100%);" class="bg-white/75 dark:bg-black/40 text-primary dark:text-inverse-primary fixed left-0 h-full w-64 backdrop-blur-md border-r border-white/30 shadow-[4px_0_12px_rgba(0,0,0,0.05)] flex flex-col h-screen py-lg z-40 transition-transform duration-300">
+<nav id="sidebar" style="transform: translateX(-100%);" class="bg-white/75 dark:bg-black/40 text-primary dark:text-inverse-primary fixed left-0 h-full w-64 backdrop-blur-md border-r border-white/30 shadow-[4px_0_12px_rgba(0,0,0,0.05)] flex flex-col h-screen py-lg z-50 transition-transform duration-300">
 <div class="px-lg pb-md mb-md border-b border-black/5">
 <div class="font-headline-md text-primary font-bold text-headline-md"><div class="flex items-center gap-2"><span class="text-[18px]">Local Engine v1.0</span></div></div>
 
@@ -298,9 +299,10 @@
 <script>
 function toggleMenu() {
   const s = document.getElementById('sidebar');
-  s.style.transform = s.style.transform === 'translateX(0px)' ? 'translateX(-100%)' : 'translateX(0px)';
-  const m = document.getElementById('main-content');
-  m.style.marginLeft = s.style.transform === 'translateX(0px)' ? '256px' : '0px';
+  const overlay = document.getElementById('sidebar-overlay');
+  const isOpen = s.style.transform === 'translateX(0px)';
+  s.style.transform = isOpen ? 'translateX(-100%)' : 'translateX(0px)';
+  overlay.style.display = isOpen ? 'none' : 'block';
 }
 if (window.innerWidth >= 768) {
   document.getElementById('sidebar').style.transform = 'translateX(0px)';
