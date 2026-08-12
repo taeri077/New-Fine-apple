@@ -1,0 +1,321 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Fine-apple Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@600;700&amp;family=Inter:wght@400&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#6bff8f",
+                    "surface-container-high": "#e8e8e8",
+                    "on-surface": "#1a1c1c",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#d6e3ff",
+                    "primary-container": "#0973dd",
+                    "primary-fixed-dim": "#a9c7ff",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#e2e2e2",
+                    "on-surface-variant": "#414753",
+                    "secondary-fixed-dim": "#c6c6c6",
+                    "on-primary-fixed": "#001b3d",
+                    "on-primary-fixed-variant": "#00468b",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-variant": "#e2e2e2",
+                    "inverse-surface": "#2f3131",
+                    "surface-bright": "#f9f9f9",
+                    "tertiary-container": "#00873b",
+                    "secondary-fixed": "#e2e2e2",
+                    "inverse-on-surface": "#f1f1f1",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-primary-container": "#fefcff",
+                    "on-background": "#1a1c1c",
+                    "surface-dim": "#dadada",
+                    "outline-variant": "#c1c6d5",
+                    "on-tertiary-container": "#f7fff3",
+                    "tertiary": "#006b2d",
+                    "background": "#f9f9f9",
+                    "on-secondary-container": "#636465",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#005db6",
+                    "surface": "#f9f9f9",
+                    "on-tertiary-fixed": "#002109",
+                    "on-error-container": "#93000a",
+                    "secondary": "#5d5e5f",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#a9c7ff",
+                    "outline": "#717784",
+                    "on-secondary-fixed-variant": "#454747",
+                    "surface-container-low": "#f4f3f3",
+                    "on-tertiary-fixed-variant": "#005321",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#4ae176",
+                    "surface-container": "#eeeeee",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "primary": "#005bb1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "margin": "24px",
+                    "unit": "4px",
+                    "xl": "40px",
+                    "xs": "4px",
+                    "gutter": "20px",
+                    "sm": "8px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "display-lg": [
+                            "Libre Franklin"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "label-mono": [
+                            "JetBrains Mono"
+                    ],
+                    "body-sm": [
+                            "Inter"
+                    ],
+                    "headline-md": [
+                            "Libre Franklin"
+                    ]
+            },
+            "fontSize": {
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-lg": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-mono": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-sm": [
+                            "13px",
+                            {
+                                    "lineHeight": "18px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+        },
+        }
+      }
+    </script>
+<style>
+        body {
+            background-color: #ECECEC;
+        }
+        
+        .jelly-btn {
+            background: linear-gradient(180deg, #0973dd 0%, #005bb1 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .jelly-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%);
+            border-radius: inherit;
+        }
+
+        .jelly-btn:active {
+            background: linear-gradient(180deg, #005bb1 0%, #0973dd 100%);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .jelly-btn:active::before {
+            display: none;
+        }
+
+        .recessed-well {
+            background-color: #e2e2e2;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .progress-bar-container {
+            background-color: #dadada;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .progress-bar-fill {
+            background: linear-gradient(90deg, #6bff8f 0%, #00873b 100%);
+            box-shadow: inset 0 1px 2px rgba(255,255,255,0.5);
+            background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+            background-size: 1rem 1rem;
+            animation: progress-candy 1s linear infinite;
+        }
+
+        @keyframes progress-candy {
+            0% { background-position: 1rem 0; }
+            100% { background-position: 0 0; }
+        }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="text-on-surface antialiased min-h-screen flex flex-col md:hidden">
+<!-- TopAppBar -->
+<header class="bg-white/70 backdrop-blur-md dark:bg-black/60 flex justify-between items-center px-lg py-md w-full sticky top-0 z-50 border-b border-white/30 shadow-[0_2px_4px_rgba(0,0,0,0.1)]"><div class="flex items-center gap-sm">
+<img class="w-8 h-8 rounded-full object-cover shadow-sm" alt="Fine-apple Logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZMATZQnVR28UwRncNFJPnawdcSIkT9xvgz-pOTMq16SVPH9rG5_IFQ2eZb8PuOi05KZ4eplWThgvBSZKgCH1mNwKagT3IsXmsAsngnBOlCv4WoUCbPpX_cdgIoWREZZGCpcjvm9_t6WLfIgVkmdc1Mjof26_ArHnm6wxkNwLhyz8oGSzgkGfelTgs_24XxCbYnz9mJeBT0XZfV6yGVBN3zgn2wpDraXrs_lzGRavVcT2EhuViMeDazHVuTT_DHTYf2Pg">
+<h1 class="font-headline-md text-headline-md font-bold bg-gradient-to-b from-primary to-primary-container bg-clip-text text-transparent drop-shadow-sm">Fine-apple</h1>
+</div>
+<button class="jelly-btn rounded-full px-4 py-1 text-on-primary font-label-mono text-label-mono shadow-md hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-150">EN/KR</button></header>
+<!-- Main Content -->
+<main class="flex-grow p-md pb-24 flex flex-col gap-lg">
+<!-- Active Training Status Panel -->
+<section class="glass-panel rounded-2xl p-md flex flex-col gap-md">
+<div class="flex justify-between items-center">
+<h2 class="font-headline-md text-headline-md text-primary-fixed-variant text-[20px] leading-[28px]">Active Training</h2>
+<span class="bg-[#d6e3ff] text-[#001b3d] px-2 py-1 rounded-full font-label-mono text-label-mono shadow-sm border border-white/50">Running</span>
+</div>
+<div class="recessed-well rounded-2xl p-md flex flex-col gap-sm">
+<div class="glass-panel rounded-2xl p-sm flex items-center gap-md">
+<div class="w-10 h-10 rounded-full recessed-well flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-body-lg text-body-lg font-medium text-on-surface">GPT2-Base-Fineweb</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Completed 2 hrs ago</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-mono text-label-mono text-[#00873b]">Success</span>
+</div>
+</div>
+<div class="glass-panel rounded-2xl p-sm flex items-center gap-md">
+<div class="w-10 h-10 rounded-full recessed-well flex items-center justify-center text-[#ba1a1a]">
+<span class="material-symbols-outlined">error</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-body-lg text-body-lg font-medium text-on-surface">Mistral-7B-LoRA-V2</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Failed yesterday</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-mono text-label-mono text-[#ba1a1a]">OOM Error</span>
+</div>
+</div>
+<div class="flex justify-between items-center mt-xs">
+<span class="font-label-mono text-label-mono text-on-surface-variant">Loss: 0.241</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">Est. Time: 45m</span>
+</div>
+</div>
+</section>
+<!-- New Experiment Action -->
+<div class="flex justify-center my-sm">
+<button class="jelly-btn rounded-full px-lg py-sm flex items-center gap-sm text-on-primary shadow-[0_4px_12px_rgba(9,115,221,0.4)] w-full justify-center max-w-[300px]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+<span class="font-body-lg text-body-lg font-bold">New Experiment</span>
+</button>
+</div>
+<!-- Recent Experiments List -->
+<section class="flex flex-col gap-md">
+<h2 class="font-headline-md text-headline-md text-on-surface text-[20px] leading-[28px] px-sm">Recent Experiments</h2>
+<div class="flex flex-col gap-sm">
+<!-- Experiment Card 1 -->
+<div class="glass-panel rounded-2xl p-sm flex items-center gap-md">
+<div class="w-10 h-10 rounded-full recessed-well flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-body-lg text-body-lg font-medium text-on-surface">GPT2-Base-Fineweb</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Completed 2 hrs ago</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-mono text-label-mono text-[#00873b]">Success</span>
+</div>
+</div>
+<!-- Experiment Card 2 -->
+<div class="glass-panel rounded-2xl p-sm flex items-center gap-md">
+<div class="w-10 h-10 rounded-full recessed-well flex items-center justify-center text-[#ba1a1a]">
+<span class="material-symbols-outlined">error</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-body-lg text-body-lg font-medium text-on-surface">Mistral-7B-LoRA-V2</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Failed yesterday</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-mono text-label-mono text-[#ba1a1a]">OOM Error</span>
+</div>
+</div>
+</div>
+</section>
+<footer class="mt-xl text-center pb-xl">
+<p class="font-label-mono text-label-mono text-on-surface-variant mb-xs">© 2024 HONUP Builder</p>
+<p class="font-label-mono text-label-mono text-outline">Local Engine v1.0</p>
+</footer>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-white/80 backdrop-blur-lg dark:bg-surface-dim/80 docked full-width bottom-0 rounded-t-lg border-t border-white/40 shadow-lg fixed bottom-0 w-full flex justify-around items-center px-margin py-sm z-50">
+<!-- Models - Active Tab based on Intent -->
+<button class="flex flex-col items-center justify-center bg-gradient-to-b from-tertiary-fixed-dim to-tertiary-container text-on-tertiary-container p-2 shadow-inner active:scale-90 transition-all duration-200 w-16 rounded-2xl">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">database</span>
+<span class="font-label-mono text-label-mono mt-1 text-[10px]">Models</span>
+</button>
+<!-- Datasets -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-white/20 active:scale-90 transition-all duration-200 w-16">
+<span class="material-symbols-outlined">dataset</span>
+<span class="font-label-mono text-label-mono mt-1 text-[10px]">Datasets</span>
+</button>
+<!-- Training -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-white/20 active:scale-90 transition-all duration-200 w-16">
+<span class="material-symbols-outlined">model_training</span>
+<span class="font-label-mono text-label-mono mt-1 text-[10px]">Training</span>
+</button>
+<!-- Deploy -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-white/20 active:scale-90 transition-all duration-200 w-16">
+<span class="material-symbols-outlined">rocket_launch</span>
+<span class="font-label-mono text-label-mono mt-1 text-[10px]">Deploy</span>
+</button>
+</nav>
+
+
+</body></html>

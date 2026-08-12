@@ -1,0 +1,309 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Model Library - Fine-apple</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Libre+Franklin:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed": "#6bff8f",
+                        "surface-container-high": "#e8e8e8",
+                        "on-surface": "#1a1c1c",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#d6e3ff",
+                        "primary-container": "#0973dd",
+                        "primary-fixed-dim": "#a9c7ff",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#e2e2e2",
+                        "on-surface-variant": "#414753",
+                        "secondary-fixed-dim": "#c6c6c6",
+                        "on-primary-fixed": "#001b3d",
+                        "on-primary-fixed-variant": "#00468b",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e2e2e2",
+                        "inverse-surface": "#2f3131",
+                        "surface-bright": "#f9f9f9",
+                        "tertiary-container": "#00873b",
+                        "secondary-fixed": "#e2e2e2",
+                        "inverse-on-surface": "#f1f1f1",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-primary-container": "#fefcff",
+                        "on-background": "#1a1c1c",
+                        "surface-dim": "#dadada",
+                        "outline-variant": "#c1c6d5",
+                        "on-tertiary-container": "#f7fff3",
+                        "tertiary": "#006b2d",
+                        "background": "#ECECEC", /* Base Layer Metallic */
+                        "on-secondary-container": "#636465",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#005db6",
+                        "surface": "#f9f9f9",
+                        "on-tertiary-fixed": "#002109",
+                        "on-error-container": "#93000a",
+                        "secondary": "#5d5e5f",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#a9c7ff",
+                        "outline": "#717784",
+                        "on-secondary-fixed-variant": "#454747",
+                        "surface-container-low": "#f4f3f3",
+                        "on-tertiary-fixed-variant": "#005321",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#4ae176",
+                        "surface-container": "#eeeeee",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "primary": "#005bb1"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "lg": "24px",
+                        "margin": "24px",
+                        "unit": "4px",
+                        "xl": "40px",
+                        "xs": "4px",
+                        "gutter": "20px",
+                        "sm": "8px",
+                        "md": "16px"
+                    },
+                    fontFamily: {
+                        "display-lg": ["Libre Franklin"],
+                        "body-lg": ["Inter"],
+                        "label-mono": ["JetBrains Mono"],
+                        "body-sm": ["Inter"],
+                        "headline-md": ["Libre Franklin"]
+                    },
+                    fontSize: {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-mono": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    },
+                    boxShadow: {
+                        'glass-panel': '0 30px 60px -15px rgba(0,0,0,0.15)',
+                        'recessed': 'inset 0 2px 4px rgba(0,0,0,0.2)',
+                        'jelly-btn': 'inset 0 1px 0 rgba(255,255,255,0.5), 0 4px 6px -1px rgba(0,0,0,0.1)',
+                        'jelly-btn-active': 'inset 0 2px 4px rgba(0,0,0,0.2)',
+                    },
+                    backgroundImage: {
+                        'jelly-gradient': 'linear-gradient(to bottom, var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #ECECEC; /* The metallic base layer */
+            color: #1a1c1c; /* on-surface */
+        }
+        
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 30px 60px -15px rgba(0,0,0,0.15);
+        }
+
+        .recessed-well {
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+            background-color: #e2e2e2; /* surface-variant */
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .jelly-btn {
+            background: linear-gradient(to bottom, #0973dd, #005bb1);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 4px 6px -1px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        .jelly-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+            border-radius: inherit;
+        }
+
+        .jelly-btn:active {
+            background: linear-gradient(to bottom, #005bb1, #0973dd);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .jelly-btn:active::before {
+            display: none;
+        }
+
+        .traffic-light {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: transparent;
+            font-size: 8px;
+            transition: color 0.2s;
+        }
+        
+        .traffic-lights:hover .traffic-light {
+            color: rgba(0,0,0,0.5);
+        }
+
+        .tl-close { background-color: #ff5f56; border: 1px solid #e0443e; }
+        .tl-min { background-color: #ffbd2e; border: 1px solid #dea123; }
+        .tl-max { background-color: #27c93f; border: 1px solid #1aab29; }
+        
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="font-body-lg text-body-lg min-h-screen flex flex-col pb-24 md:pb-0 relative overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-white/70 backdrop-blur-md dark:bg-black/60 font-headline-md text-headline-md border-b border-white/30 shadow-[0_2px_4px_rgba(0,0,0,0.1)] flex justify-between items-center px-lg py-md w-full sticky top-0 z-50 md:hidden">
+<div class="flex items-center gap-sm"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkh538f3_UHUc00t3bri3ZaWfGKYoLYjUp6Twgrvg_UsCkfK2fPbydH5T5VW3FtjH3S9XA2_2ykjBM9UIFqvNEbDIsbTegrUNpo5BUNkIy2PKwAzwRcQ6QeL5OWwCs_FW1rNDEdav8b08Np41fnJkvbyKEWoRcE3IyslUxocIhpAFhgTMbvKSTZbXWDmDOgw19KcbANvyLpVtHAmIn3vB5TeW0T6YKRt53ZJcv5aG175_Bb2QuXMng-zQ9lBt1rGey6Ws" alt="Fine-apple Logo" class="w-8 h-8 object-contain"><span class="font-display-lg text-display-lg bg-gradient-to-b from-primary to-primary-container bg-clip-text text-transparent drop-shadow-sm !text-[24px] !leading-[32px] tracking-tight">Fine-apple</span></div>
+<button class="font-label-mono text-label-mono bg-surface-variant text-on-surface-variant px-md py-xs rounded-full recessed-well active:scale-95 transition-transform duration-150 hover:opacity-80 transition-opacity uppercase border border-white/50">EN/KR</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow p-md flex flex-col gap-lg z-10">
+<!-- Search Recess -->
+<div class="recessed-well rounded-lg flex items-center px-md py-sm bg-surface-container-high focus-within:ring-2 focus-within:ring-primary-container/50 transition-all">
+<span class="material-symbols-outlined text-outline mr-sm" data-icon="search">search</span>
+<input class="bg-transparent border-none outline-none text-on-surface w-full font-body-sm text-body-sm placeholder:text-outline-variant" placeholder="Search Models..." type="text">
+</div>
+<!-- Model Library Grid (Bento Style) -->
+<div class="grid grid-cols-1 gap-md">
+<!-- Model Card 1 -->
+<div class="glass-panel p-md flex flex-col gap-sm relative overflow-hidden group rounded-lg">
+<div class="absolute top-0 right-0 p-sm opacity-50 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary text-opacity-50 text-[64px] absolute -top-4 -right-4 rotate-12" data-icon="database">database</span>
+</div>
+<div class="flex justify-between items-start z-10">
+<div class="flex gap-sm items-center">
+<div class="traffic-lights flex gap-[8px]">
+<div class="traffic-light tl-close"><span class="material-symbols-outlined !text-[8px]">close</span></div>
+<div class="traffic-light tl-min"><span class="material-symbols-outlined !text-[8px]">remove</span></div>
+<div class="traffic-light tl-max"><span class="material-symbols-outlined !text-[8px]">add</span></div>
+</div>
+</div>
+<span class="font-label-mono text-label-mono bg-gradient-to-b from-surface-variant to-surface text-on-surface-variant px-sm py-xs rounded-full border border-white/40 shadow-sm flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_8px_rgba(0,107,45,0.6)]"></span> Active
+                    </span>
+</div>
+<div class="z-10 mt-xs">
+<h3 class="font-headline-md text-headline-md text-on-surface !text-[20px] !leading-[28px]">Llama 3 8B</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">High-efficiency language model optimized for edge deployments.</p>
+</div>
+<div class="z-10 mt-sm flex gap-sm">
+<span class="font-label-mono text-label-mono bg-surface-container-high/50 px-2 py-1 rounded text-on-surface-variant border border-white/20">LLM</span>
+<span class="font-label-mono text-label-mono bg-surface-container-high/50 px-2 py-1 rounded text-on-surface-variant border border-white/20">8B Params</span>
+</div>
+<div class="z-10 mt-md pt-sm border-t border-on-surface-variant/10 flex justify-end gap-sm">
+<button class="font-label-mono text-label-mono px-md py-sm rounded-full text-on-surface-variant hover:bg-surface-variant/50 transition-colors">Details</button>
+<button class="jelly-btn font-label-mono text-label-mono px-md py-sm rounded-full text-on-primary font-bold">Deploy</button>
+</div>
+</div>
+<!-- Model Card 2 -->
+<div class="glass-panel p-md flex flex-col gap-sm relative overflow-hidden group rounded-lg">
+<div class="absolute top-0 right-0 p-sm opacity-50 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-tertiary text-opacity-50 text-[64px] absolute -top-4 -right-4 -rotate-12" data-icon="visibility">visibility</span>
+</div>
+<div class="flex justify-between items-start z-10">
+<div class="flex gap-sm items-center">
+<div class="traffic-lights flex gap-[8px]">
+<div class="traffic-light tl-close"><span class="material-symbols-outlined !text-[8px]">close</span></div>
+<div class="traffic-light tl-min"><span class="material-symbols-outlined !text-[8px]">remove</span></div>
+<div class="traffic-light tl-max"><span class="material-symbols-outlined !text-[8px]">add</span></div>
+</div>
+</div>
+<span class="font-label-mono text-label-mono bg-gradient-to-b from-surface-variant to-surface text-on-surface-variant px-sm py-xs rounded-full border border-white/40 shadow-sm flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-outline shadow-[0_0_8px_rgba(113,119,132,0.4)]"></span> Idle
+                    </span>
+</div>
+<div class="z-10 mt-xs">
+<h3 class="font-headline-md text-headline-md text-on-surface !text-[20px] !leading-[28px]">Stable Diffusion XL</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Next-gen text-to-image synthesis with enhanced detail.</p>
+</div>
+<div class="z-10 mt-sm flex gap-sm">
+<span class="font-label-mono text-label-mono bg-surface-container-high/50 px-2 py-1 rounded text-on-surface-variant border border-white/20">Vision</span>
+<span class="font-label-mono text-label-mono bg-surface-container-high/50 px-2 py-1 rounded text-on-surface-variant border border-white/20">Generative</span>
+</div>
+<div class="z-10 mt-md pt-sm border-t border-on-surface-variant/10 flex justify-end gap-sm">
+<button class="font-label-mono text-label-mono px-md py-sm rounded-full text-on-surface-variant hover:bg-surface-variant/50 transition-colors">Details</button>
+<button class="jelly-btn font-label-mono text-label-mono px-md py-sm rounded-full text-on-primary font-bold">Deploy</button>
+</div>
+</div>
+<!-- Model Card 3 (Recessed/Offline State) -->
+<div class="recessed-well p-md flex flex-col gap-sm relative overflow-hidden group opacity-80 rounded-lg">
+<div class="flex justify-between items-start z-10">
+<div class="flex gap-sm items-center">
+<div class="traffic-lights flex gap-[8px] opacity-50">
+<div class="traffic-light tl-close"><span class="material-symbols-outlined !text-[8px]">close</span></div>
+<div class="traffic-light tl-min"><span class="material-symbols-outlined !text-[8px]">remove</span></div>
+<div class="traffic-light tl-max"><span class="material-symbols-outlined !text-[8px]">add</span></div>
+</div>
+</div>
+<span class="font-label-mono text-label-mono bg-surface-container-highest text-on-surface-variant px-sm py-xs rounded-full border border-outline-variant/30 flex items-center gap-1">
+<span class="material-symbols-outlined !text-[14px]">cloud_off</span> Offline
+                    </span>
+</div>
+<div class="z-10 mt-xs">
+<h3 class="font-headline-md text-headline-md text-on-surface !text-[20px] !leading-[28px]">GPT-NeoX 20B</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Requires infrastructure scaling. Maintenance scheduled.</p>
+</div>
+<div class="z-10 mt-md pt-sm border-t border-on-surface-variant/10 flex justify-end gap-sm">
+<button class="font-label-mono text-label-mono px-md py-sm rounded-full text-on-surface-variant opacity-50 cursor-not-allowed">Details</button>
+</div>
+</div>
+</div>
+<footer class="mt-xl text-center pb-xl opacity-60">
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">© 2024 HONUP Builder</p>
+</footer>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="bg-white/80 backdrop-blur-lg dark:bg-surface-dim/80 font-label-mono text-label-mono docked full-width bottom-0 rounded-t-lg border-t border-white/40 shadow-[0_-4px_12px_rgba(0,0,0,0.08)] shadow-lg fixed bottom-0 w-full flex justify-around items-center px-margin py-sm z-50 md:hidden">
+<!-- Active Tab: Models -->
+<a class="flex flex-col items-center justify-center bg-gradient-to-b from-tertiary-fixed-dim to-tertiary-container text-on-tertiary-container p-2 shadow-inner active:scale-90 transition-all duration-200 hover:bg-white/20 rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="database" data-weight="fill" style="font-variation-settings: 'FILL' 1;">database</span>
+<span class="">Models</span>
+</a>
+<!-- Inactive Tab: Datasets -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:scale-90 transition-all duration-200 hover:bg-white/20" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="dataset">dataset</span>
+<span class="">Datasets</span>
+</a>
+<!-- Inactive Tab: Training -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:scale-90 transition-all duration-200 hover:bg-white/20" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="model_training">model_training</span>
+<span class="">Training</span>
+</a>
+<!-- Inactive Tab: Deploy -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:scale-90 transition-all duration-200 hover:bg-white/20" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="rocket_launch">rocket_launch</span>
+<span class="">Deploy</span>
+</a>
+</nav>
+
+
+</body></html>

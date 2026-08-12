@@ -1,0 +1,299 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Fine-apple Studio - Dataset Manager</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Libre+Franklin:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#6bff8f",
+                        "surface-container-high": "#e8e8e8",
+                        "on-surface": "#1a1c1c",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#d6e3ff",
+                        "primary-container": "#0973dd",
+                        "primary-fixed-dim": "#a9c7ff",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#e2e2e2",
+                        "on-surface-variant": "#414753",
+                        "secondary-fixed-dim": "#c6c6c6",
+                        "on-primary-fixed": "#001b3d",
+                        "on-primary-fixed-variant": "#00468b",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e2e2e2",
+                        "inverse-surface": "#2f3131",
+                        "surface-bright": "#f9f9f9",
+                        "tertiary-container": "#00873b",
+                        "secondary-fixed": "#e2e2e2",
+                        "inverse-on-surface": "#f1f1f1",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-primary-container": "#fefcff",
+                        "on-background": "#1a1c1c",
+                        "surface-dim": "#dadada",
+                        "outline-variant": "#c1c6d5",
+                        "on-tertiary-container": "#f7fff3",
+                        "tertiary": "#006b2d",
+                        "background": "#f9f9f9",
+                        "on-secondary-container": "#636465",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#005db6",
+                        "surface": "#f9f9f9",
+                        "on-tertiary-fixed": "#002109",
+                        "on-error-container": "#93000a",
+                        "secondary": "#5d5e5f",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#a9c7ff",
+                        "outline": "#717784",
+                        "on-secondary-fixed-variant": "#454747",
+                        "surface-container-low": "#f4f3f3",
+                        "on-tertiary-fixed-variant": "#005321",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#4ae176",
+                        "surface-container": "#eeeeee",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "primary": "#005bb1",
+                        "metallic": "#ECECEC"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "margin": "24px",
+                        "unit": "4px",
+                        "xl": "40px",
+                        "xs": "4px",
+                        "gutter": "20px",
+                        "sm": "8px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Libre Franklin", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "label-mono": ["JetBrains Mono", "monospace"],
+                        "body-sm": ["Inter", "sans-serif"],
+                        "headline-md": ["Libre Franklin", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-mono": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #ECECEC;
+            /* Aqua aesthetic base */
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .recessed-well {
+            background: #e2e2e2;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .jelly-button {
+            background: linear-gradient(180deg, #6bff8f 0%, #00873b 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .jelly-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 100%);
+            border-radius: inherit;
+            pointer-events: none;
+        }
+
+        .jelly-button:active {
+            background: linear-gradient(180deg, #00873b 0%, #6bff8f 100%);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .jelly-button:active::after {
+            opacity: 0;
+        }
+
+        .candy-stripe-progress {
+            background-image: linear-gradient(
+                -45deg,
+                rgba(255, 255, 255, 0.2) 25%,
+                transparent 25%,
+                transparent 50%,
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0.2) 75%,
+                transparent 75%,
+                transparent
+            );
+            background-size: 20px 20px;
+            animation: move-stripes 1s linear infinite;
+        }
+
+        @keyframes move-stripes {
+            0% { background-position: 0 0; }
+            100% { background-position: 20px 0; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-lg text-on-background pb-[80px]">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-lg py-md w-full sticky top-0 z-50 bg-white/80 backdrop-blur-lg dark:bg-black/60 shadow-[0_2px_10px_rgba(0,0,0,0.1)] border-b border-white/40">
+<div class="flex items-center gap-sm"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8fSGtqik8dNmS2KTj-Mbj45hKOdMnEi4EfBGuMIFPVPmx3Ryrk00nw92RB1QcVLkZ2AMCXQaoEDH6ohssfqhjQYeDUZqI3slprOb_SjMYp0DQi04_UFbYenjX9AuziyPVWcXzEjpB3oz45bI_tRGk_0m04Uw8CJwrZW7YMOx6H2hCY9_XCRHQCiUP__VYu4ynPn7cShtKqFrGVDaHiR3CpTokQZ-fkQG5vXmN04zarMlrqcpl4nfC_JWPAVr0L0We64U" alt="Fine-apple Logo" class="w-8 h-8 object-contain"><h1 class="font-display-lg text-[24px] font-bold tracking-tight bg-gradient-to-b from-primary to-primary-container bg-clip-text text-transparent drop-shadow-sm">Fine-apple</h1></div>
+<button class="font-label-mono text-label-mono text-primary font-bold px-3 py-1 rounded-full border border-primary/20 hover:bg-primary/5 active:scale-95 transition-transform duration-150">
+            EN/KR
+        </button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow p-md max-w-full overflow-x-hidden space-y-md">
+<!-- Header & Action -->
+<div class="flex justify-between items-end mb-sm">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Dataset Manager</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Manage and upload training data.</p>
+</div>
+<button class="jelly-button rounded-full w-10 h-10 flex items-center justify-center text-white active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<!-- Dataset List (Bento-ish Stack) -->
+<div class="space-y-sm">
+<!-- Dataset Item 1: Processing -->
+<div class="glass-panel p-md relative overflow-hidden rounded-2xl">
+<!-- Traffic Lights -->
+<div class="absolute top-3 left-3 flex gap-2">
+<div class="w-3 h-3 rounded-full bg-error shadow-inner"></div>
+<div class="w-3 h-3 rounded-full bg-[#ffb82b] shadow-inner"></div>
+<div class="w-3 h-3 rounded-full bg-tertiary-fixed shadow-inner"></div>
+</div>
+<div class="mt-4 flex justify-between items-start">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full recessed-well flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">dataset</span>
+</div>
+<div>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-surface">customer_support_logs_v2</h3>
+<span class="font-label-mono text-label-mono text-on-surface-variant bg-metallic px-2 py-0.5 rounded-full border border-white/50">CSV • 1.2 GB</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">more_vert</span>
+</div>
+<div class="mt-md">
+<div class="flex justify-between font-label-mono text-label-mono text-primary mb-1">
+<span class="">Uploading...</span>
+<span class="">68%</span>
+</div>
+<div class="h-2 rounded-full recessed-well overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-fixed-dim candy-stripe-progress w-[68%] rounded-full shadow-[inset_0_1px_2px_rgba(255,255,255,0.5)]"></div>
+</div>
+</div>
+</div>
+<!-- Dataset Item 2: Ready -->
+<div class="glass-panel p-md relative overflow-hidden rounded-2xl">
+<div class="absolute top-3 left-3 flex gap-2">
+<div class="w-3 h-3 rounded-full bg-error shadow-inner"></div>
+<div class="w-3 h-3 rounded-full bg-[#ffb82b] shadow-inner"></div>
+<div class="w-3 h-3 rounded-full bg-tertiary-fixed shadow-inner"></div>
+</div>
+<div class="mt-4 flex justify-between items-start">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full recessed-well flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-surface">product_catalog_images</h3>
+<span class="font-label-mono text-label-mono text-on-surface-variant bg-metallic px-2 py-0.5 rounded-full border border-white/50">ZIP • 4.5 GB</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">more_vert</span>
+</div>
+<div class="mt-sm flex gap-2">
+<span class="font-label-mono text-[10px] text-tertiary bg-tertiary-container/20 px-2 py-1 rounded border border-tertiary/20">Ready for Training</span>
+</div>
+</div>
+<!-- Dataset Item 3: Error -->
+<div class="glass-panel p-md relative overflow-hidden rounded-2xl">
+<div class="absolute top-3 left-3 flex gap-2">
+<div class="w-3 h-3 rounded-full bg-error shadow-inner"></div>
+<div class="w-3 h-3 rounded-full bg-[#ffb82b] shadow-inner"></div>
+<div class="w-3 h-3 rounded-full bg-tertiary-fixed shadow-inner"></div>
+</div>
+<div class="mt-4 flex justify-between items-start">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full recessed-well flex items-center justify-center text-error">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">error</span>
+</div>
+<div>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-surface">corrupted_batch_09</h3>
+<span class="font-label-mono text-label-mono text-on-surface-variant bg-metallic px-2 py-0.5 rounded-full border border-white/50">JSONL • 800 MB</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">more_vert</span>
+</div>
+<div class="mt-md">
+<div class="flex justify-between font-label-mono text-label-mono text-error mb-1">
+<span class="">Validation Failed</span>
+</div>
+<div class="h-2 rounded-full recessed-well overflow-hidden">
+<div class="h-full bg-error w-[15%] rounded-full shadow-[inset_0_1px_2px_rgba(255,255,255,0.5)]"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="text-center py-md mt-auto">
+<p class="font-label-mono text-label-mono text-outline">© 2024 HONUP Builder</p>
+</footer>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full flex justify-around items-center px-margin py-sm z-50 bg-white/80 backdrop-blur-lg dark:bg-surface-dim/80 docked full-width bottom-0 rounded-t-lg shadow-lg border-t border-white/40 shadow-[0_-4px_12px_rgba(0,0,0,0.08)] md:hidden">
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-white/20 active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="database">database</span>
+<span class="font-label-mono text-[10px]">Models</span>
+</button>
+<!-- Active Tab: Datasets -->
+<button class="flex flex-col items-center justify-center bg-gradient-to-b from-tertiary-fixed-dim to-tertiary-container text-on-tertiary-container rounded-xl p-2 shadow-inner active:scale-90 transition-all duration-200 relative overflow-hidden">
+<!-- Glossy highlight for active nav pill -->
+<div class="absolute inset-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent pointer-events-none"></div>
+<span class="material-symbols-outlined text-2xl mb-1 drop-shadow" data-icon="dataset">dataset</span>
+<span class="font-label-mono text-[10px] font-bold drop-shadow">Datasets</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-white/20 active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="model_training">model_training</span>
+<span class="font-label-mono text-[10px]">Training</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-white/20 active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="rocket_launch">rocket_launch</span>
+<span class="font-label-mono text-[10px]">Deploy</span>
+</button>
+</nav>
+
+
+</body></html>
