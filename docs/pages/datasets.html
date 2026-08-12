@@ -226,4 +226,92 @@ window.addEventListener("message", function(e) {
   }
 });
 </script>
+<script>
+// ── 1. 드롭존 ──
+const dropZone = document.querySelector('.border-dashed');
+const storageNum = document.querySelector('.text-3xl');
+const datasetCount = document.querySelector('.text-tertiary');
+let datasets = JSON.parse(localStorage.getItem('fa_datasets') || '[]');
+
+function updateStats() {
+  const totalMB = datasets.reduce((a, b) => a + b.size, 0) / 1024 / 1024;
+  storageNum.innerHTML = totalMB.toFixed(2) + ' <span class="text-base font-normal">GB</span>';
+  datasetCount.textContent = datasets.length + ' Active Datasets';
+  localStorage.setItem('fa_datasets', JSON.stringify(datasets));
+}
+
+function addDataset(name, size) {
+  datasets.push({ name, size, added: new Date().toISOString() });
+  updateStats();
+}
+
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.style.borderColor = '#005bb1'; });
+dropZone.addEventListener('dragleave', () => { dropZone.style.borderColor = ''; });
+dropZone.addEventListener('drop', e => {
+  e.preventDefault();
+  dropZone.style.borderColor = '';
+  [...e.dataTransfer.files].forEach(f => addDataset(f.name, f.size));
+});
+dropZone.addEventListener('click', () => {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = '.jsonl,.csv,.md';
+  input.multiple = true;
+  input.onchange = () => [...input.files].forEach(f => addDataset(f.name, f.size));
+  input.click();
+});
+updateStats();
+
+// ── 2. Alpaca Converter ──
+const textarea = document.querySelector('textarea');
+const convertBtn = document.querySelector('[data-i18n="btn_convert_alpaca"]');
+
+convertBtn.addEventListener('click', () => {
+  const raw = textarea.value.trim();
+  if (!raw) return;
+  const lines = raw.split('\n');
+  const pairs = [];
+  let current = {};
+  lines.forEach(line => {
+    if (line.startsWith('User:') || line.startsWith('사용자:')) {
+      if (current.instruction) pairs.push(current);
+      current = { instruction: line.replace(/^(User:|사용자:)\s*/, ''), input: '', output: '' };
+    } else if (line.startsWith('Assistant:') || line.startsWith('어시스턴트:')) {
+      current.output = line.replace(/^(Assistant:|어시스턴트:)\s*/, '');
+    }
+  });
+  if (current.instruction) pairs.push(current);
+  const jsonl = pairs.map(p => JSON.stringify(p)).join('\n');
+
+  let resultBox = document.getElementById('alpaca-result');
+  if (!resultBox) {
+    resultBox = document.createElement('div');
+    resultBox.id = 'alpaca-result';
+    resultBox.className = 'recessed-well rounded-lg p-3 mt-3 border border-white/50';
+    resultBox.innerHTML = '<div class="flex justify-between items-center mb-1"><span class="font-label-mono text-[10px] text-on-surface-variant">JSONL Output</span><button id="copy-alpaca" class="font-label-mono text-[10px] text-primary">복사</button></div><pre id="alpaca-pre" class="font-label-mono text-[10px] text-on-surface whitespace-pre-wrap break-all"></pre>';
+    convertBtn.parentElement.insertBefore(resultBox, convertBtn);
+  }
+  document.getElementById('alpaca-pre').textContent = jsonl || '변환할 대화 쌍을 찾지 못했습니다.';
+  document.getElementById('copy-alpaca').onclick = () => {
+    navigator.clipboard.writeText(jsonl);
+    document.getElementById('copy-alpaca').textContent = '복사됨!';
+    setTimeout(() => document.getElementById('copy-alpaca').textContent = '복사', 2000);
+  };
+});
+
+// ── 3. Quality Filter 체크박스 저장 ──
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+checkboxes.forEach((cb, i) => {
+  const saved = localStorage.getItem('fa_filter_' + i);
+  if (saved !== null) cb.checked = saved === 'true';
+  cb.addEventListener('change', () => localStorage.setItem('fa_filter_' + i, cb.checked));
+});
+
+const saveBtn = document.querySelector('[data-i18n="btn_save_dataset"]');
+saveBtn.addEventListener('click', () => {
+  const active = [...checkboxes].filter(cb => cb.checked).length;
+  saveBtn.textContent = '✓ ' + active + '개 필터 적용됨';
+  setTimeout(() => saveBtn.innerHTML = '<span class="material-symbols-outlined text-base">save</span> Save to Knowledge Base', 2000);
+});
+</script>
 </body></html>
