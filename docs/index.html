@@ -234,11 +234,11 @@
     <div class="w-3 h-3 rounded-full bg-[#22c55e] shadow-[inset_0_1px_1px_rgba(255,255,255,0.5)] border border-black/10"></div>
 </div>
 <div class="font-headline-md text-headline-md text-on-surface flex items-center gap-2 font-bold tracking-tight"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD-jnvK0YyxqE5Npjfdw4xwtG7IU8san7FVmie5SuKv1fzvTbneIpgOzowppRfAusTVFGs5geZuFV0jwwvSZvH2lulCBjEbcghd-v7t3l9UoAr0l2jeVwWphRk6XOcL3oJ6--uGeGlYEh5xTrqooHUZ3-SMhokHhpiXgTfQ_IeZuAp791Q6RFdzJBIGL9NuvDDHJxhPlq9PZsHRTDhX5oIe7ajyhX7s_t5wvg5jeEKD1aKzIKLrbSVsjiscYtsgZcenmY" alt="Fine-apple Logo" class="w-8 h-8 object-contain"><span class="">Fine-apple</span></div></div>
-<div class="flex items-center gap-md"><button class="lang-toggle-btn jelly-button text-on-primary font-bold py-1 px-4 rounded-full shadow-sm text-[14px] flex items-center justify-center">EN</button></div>
+<div class="flex items-center gap-md"><button class="lang-toggle-btn jelly-button text-on-primary font-bold py-1 px-4 rounded-full shadow-sm text-[14px] flex items-center justify-center">EN</button><button id="hamburger" class="md:hidden ml-2 p-2" onclick="toggleMenu()"><span class="material-symbols-outlined text-[24px]">menu</span></button></div>
 </header>
 <div class="flex flex-1 overflow-hidden">
 <!-- SideNavBar -->
-<nav class="bg-white/75 dark:bg-black/40 text-primary dark:text-inverse-primary fixed left-0 h-full w-64 backdrop-blur-md border-r border-white/30 shadow-[4px_0_12px_rgba(0,0,0,0.05)] flex flex-col h-screen py-lg z-40">
+<nav id="sidebar" class="bg-white/75 dark:bg-black/40 text-primary dark:text-inverse-primary fixed left-0 h-full w-64 backdrop-blur-md border-r border-white/30 shadow-[4px_0_12px_rgba(0,0,0,0.05)] flex flex-col h-screen py-lg z-40 -translate-x-full md:translate-x-0 transition-transform duration-300">
 <div class="px-lg pb-md mb-md border-b border-black/5">
 <div class="font-headline-md text-primary font-bold text-headline-md"><div class="flex items-center gap-2"><span class="text-[18px]">Local Engine v1.0</span></div></div>
 
@@ -302,5 +302,10 @@
       });
     });
   });
+</script>
+<script>
+function toggleMenu() {
+  document.getElementById('sidebar').classList.toggle('-translate-x-full');
+}
 </script>
 </body></html>
