@@ -238,7 +238,7 @@
 </header>
 <div class="flex flex-1 overflow-hidden">
 <!-- SideNavBar -->
-<nav id="sidebar" class="bg-white/75 dark:bg-black/40 text-primary dark:text-inverse-primary fixed left-0 h-full w-64 backdrop-blur-md border-r border-white/30 shadow-[4px_0_12px_rgba(0,0,0,0.05)] flex flex-col h-screen py-lg z-40 -translate-x-full md:translate-x-0 transition-transform duration-300">
+<nav id="sidebar" style="transform: translateX(-100%);" class="bg-white/75 dark:bg-black/40 text-primary dark:text-inverse-primary fixed left-0 h-full w-64 backdrop-blur-md border-r border-white/30 shadow-[4px_0_12px_rgba(0,0,0,0.05)] flex flex-col h-screen py-lg z-40 transition-transform duration-300">
 <div class="px-lg pb-md mb-md border-b border-black/5">
 <div class="font-headline-md text-primary font-bold text-headline-md"><div class="flex items-center gap-2"><span class="text-[18px]">Local Engine v1.0</span></div></div>
 
@@ -305,7 +305,11 @@
 </script>
 <script>
 function toggleMenu() {
-  document.getElementById('sidebar').classList.toggle('-translate-x-full');
+  const s = document.getElementById('sidebar');
+  s.style.transform = s.style.transform === 'translateX(0px)' ? 'translateX(-100%)' : 'translateX(0px)';
+}
+if (window.innerWidth >= 768) {
+  document.getElementById('sidebar').style.transform = 'translateX(0px)';
 }
 </script>
 </body></html>
