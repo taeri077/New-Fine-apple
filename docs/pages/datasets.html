@@ -1,0 +1,222 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Fine-apple - Manage Datasets</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#6bff8f",
+                        "inverse-surface": "#2f3131",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#c6c6c6",
+                        "outline-variant": "#c1c6d5",
+                        "surface-container-low": "#f4f3f3",
+                        "surface-container": "#eeeeee",
+                        "on-primary-container": "#fefcff",
+                        "on-surface-variant": "#414753",
+                        "tertiary": "#006b2d",
+                        "primary": "#005bb1",
+                        "on-surface": "#1a1c1c",
+                        "surface-dim": "#dadada",
+                        "on-tertiary-fixed-variant": "#005321",
+                        "background": "#f9f9f9",
+                        "tertiary-fixed-dim": "#4ae176",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "primary-fixed": "#d6e3ff",
+                        "on-primary-fixed": "#001b3d",
+                        "on-tertiary-fixed": "#002109",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-tertiary": "#ffffff",
+                        "outline": "#717784",
+                        "secondary": "#5d5e5f",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#e2e2e2",
+                        "on-secondary-fixed-variant": "#454747",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e2e2e2",
+                        "on-primary-fixed-variant": "#00468b",
+                        "surface": "#f9f9f9",
+                        "surface-tint": "#005db6",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#a9c7ff",
+                        "on-tertiary-container": "#f7fff3",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#00873b",
+                        "on-secondary-container": "#636465",
+                        "secondary-fixed": "#e2e2e2",
+                        "primary-container": "#0973dd",
+                        "surface-bright": "#f9f9f9",
+                        "surface-container-high": "#e8e8e8",
+                        "inverse-primary": "#a9c7ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "12px",
+                        "md": "16px",
+                        "lg": "20px",
+                        "xl": "24px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "20px",
+                        "sm": "8px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "xl": "40px",
+                        "unit": "4px",
+                        "margin": "24px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Libre Franklin"],
+                        "body-sm": ["Inter"],
+                        "label-mono": ["JetBrains Mono"],
+                        "headline-md": ["Libre Franklin"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "label-mono": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Libre+Franklin:wght@600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+        body {
+            background-color: #ECECEC;
+            background-image: linear-gradient(to bottom, #f5f5f5 0%, #e0e0e0 100%);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .recessed-well {
+            background: #e8e8e8;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .btn-jelly {
+            background: linear-gradient(180deg, #3399ff 0%, #005bb1 100%);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 2px 4px rgba(0, 0, 0, 0.15);
+            border: 1px solid #00468b;
+        }
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+</style>
+</head>
+<body class="p-lg font-body-lg text-body-lg text-on-surface min-h-screen">
+<main class="h-full overflow-y-auto">
+<div class="max-w-6xl mx-auto space-y-gutter">
+<!-- Window Controls / Title -->
+<div class="flex items-center justify-between mb-4 px-2">
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold" data-i18n="title_manage_datasets">Manage Datasets</h2>
+<div class="flex gap-2">
+<button class="btn-glass rounded-lg px-4 py-1.5 font-label-mono text-label-mono flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+                        <span data-i18n="btn_filter">Filter</span>
+                    </button>
+</div>
+</div>
+<!-- Top Section: Upload Bento -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Large Upload Dropzone -->
+<div class="md:col-span-2 glass-panel rounded-lg p-6 flex flex-col items-center justify-center min-h-[220px] border-2 border-dashed border-outline-variant/40 hover:border-primary transition-all cursor-pointer group">
+<div class="w-14 h-14 rounded-full bg-primary-fixed flex items-center justify-center text-primary mb-3 group-hover:scale-110 transition-transform shadow-inner">
+<span class="material-symbols-outlined text-2xl">cloud_upload</span>
+</div>
+<p class="font-headline-md text-base text-on-surface mb-1">Drag and drop your dataset here</p>
+<p class="font-body-sm text-xs text-on-surface-variant mb-4" data-i18n="desc_upload_dataset">Supports .jsonl, .csv, .md (max 500MB)</p>
+<button class="btn-jelly text-on-primary font-bold px-5 py-2 rounded-full text-xs shadow-md" data-i18n="btn_upload_dataset">Upload New Dataset</button>
+</div>
+<!-- Mini Stats Card -->
+<div class="glass-panel rounded-lg p-6 flex flex-col justify-between">
+<div>
+<span class="font-label-mono text-xs text-on-surface-variant uppercase tracking-wider block mb-2">Storage Usage</span>
+<div class="font-display-lg text-3xl font-bold text-on-surface mb-1">2.54 <span class="text-base font-normal">GB</span></div>
+<p class="font-body-sm text-xs text-tertiary font-medium">12 Active Datasets</p>
+</div>
+<div class="space-y-2 mt-4">
+<div class="flex justify-between text-xs font-label-mono">
+<span class="text-on-surface-variant">Alpaca Formatted</span>
+<span class="font-bold">85%</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 85%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Middle Section: Converter & Data Management -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Alpaca Converter Panel -->
+<div class="glass-panel rounded-lg p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary text-xl">auto_fix_high</span>
+<h3 class="font-headline-md text-lg text-on-surface font-bold">Alpaca Format Converter</h3>
+</div>
+<p class="font-body-sm text-xs text-on-surface-variant mb-4">Paste raw text or Q&amp;A pairs to auto-structure into standard Instruction/Input/Output JSONL.</p>
+<div class="recessed-well rounded-lg p-3 border border-white/50 mb-4">
+<label class="font-label-mono text-[10px] text-on-surface-variant block mb-1" data-i18n="label_paste_chat">Paste Raw Chat / Instructions</label>
+<textarea class="w-full bg-transparent font-label-mono text-xs border-none focus:outline-none resize-none h-24 text-on-surface" placeholder="User: 파인튜닝을 어떻게 시작해야 하나요?&#10;Assistant: Fine-apple 스튜디오를 사용해 로컬 모델을 학습시키시면 됩니다."></textarea>
+</div>
+</div>
+<button class="btn-jelly text-on-primary font-bold w-full py-2.5 rounded-lg text-xs shadow-md flex items-center justify-center gap-2" data-i18n="btn_convert_alpaca">
+<span class="material-symbols-outlined text-base">transform</span>
+                    Convert to Alpaca Format
+                </button>
+</div>
+<!-- Dataset Quality Inspector -->
+<div class="glass-panel rounded-lg p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-tertiary text-xl">fact_check</span>
+<h3 class="font-headline-md text-lg text-on-surface font-bold">Quality Filter &amp; Sanitizer</h3>
+</div>
+<p class="font-body-sm text-xs text-on-surface-variant mb-4">Apply automated rules to clean low-quality samples before training.</p>
+<div class="space-y-3">
+<label class="flex items-center gap-3 p-2.5 rounded-lg bg-white/40 border border-white/60 cursor-pointer hover:bg-white/60 transition-colors">
+<input checked="" class="rounded border-outline text-primary focus:ring-primary h-4 w-4" type="checkbox">
+<div>
+<span class="font-body-lg text-xs font-semibold text-on-surface block">Remove Duplicate Pairs</span>
+<span class="font-label-mono text-[10px] text-on-surface-variant">Filters out identical instruction/output rows</span>
+</div>
+</label>
+<label class="flex items-center gap-3 p-2.5 rounded-lg bg-white/40 border border-white/60 cursor-pointer hover:bg-white/60 transition-colors">
+<input checked="" class="rounded border-outline text-primary focus:ring-primary h-4 w-4" type="checkbox">
+<div>
+<span class="font-body-lg text-xs font-semibold text-on-surface block">Min Length Threshold</span>
+<span class="font-label-mono text-[10px] text-on-surface-variant">Drop responses under 10 tokens</span>
+</div>
+</label>
+</div>
+</div>
+<button class="btn-glass text-on-surface font-bold w-full py-2.5 rounded-lg text-xs shadow-sm flex items-center justify-center gap-2 mt-4 hover:bg-white/80" data-i18n="btn_save_dataset">
+<span class="material-symbols-outlined text-base">save</span>
+                    Save to Knowledge Base
+                </button>
+</div>
+</div>
+</div>
+</main>
+<script src="../assets/js/i18n.js"></script>
+<script src="../assets/js/app.js"></script>
+</body></html>

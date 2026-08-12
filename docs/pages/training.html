@@ -1,0 +1,262 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Fine-apple - Training Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#6bff8f",
+                        "inverse-surface": "#2f3131",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#c6c6c6",
+                        "outline-variant": "#c1c6d5",
+                        "surface-container-low": "#f4f3f3",
+                        "surface-container": "#eeeeee",
+                        "on-primary-container": "#fefcff",
+                        "on-surface-variant": "#414753",
+                        "tertiary": "#006b2d",
+                        "primary": "#005bb1",
+                        "on-surface": "#1a1c1c",
+                        "surface-dim": "#dadada",
+                        "on-tertiary-fixed-variant": "#005321",
+                        "background": "#f9f9f9",
+                        "tertiary-fixed-dim": "#4ae176",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "primary-fixed": "#d6e3ff",
+                        "on-primary-fixed": "#001b3d",
+                        "on-tertiary-fixed": "#002109",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-tertiary": "#ffffff",
+                        "outline": "#717784",
+                        "secondary": "#5d5e5f",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#e2e2e2",
+                        "on-secondary-fixed-variant": "#454747",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e2e2e2",
+                        "on-primary-fixed-variant": "#00468b",
+                        "surface": "#f9f9f9",
+                        "surface-tint": "#005db6",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#a9c7ff",
+                        "on-tertiary-container": "#f7fff3",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#00873b",
+                        "on-secondary-container": "#636465",
+                        "secondary-fixed": "#e2e2e2",
+                        "primary-container": "#0973dd",
+                        "surface-bright": "#f9f9f9",
+                        "surface-container-high": "#e8e8e8",
+                        "inverse-primary": "#a9c7ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "12px",
+                        "md": "16px",
+                        "lg": "20px",
+                        "xl": "24px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "20px",
+                        "sm": "8px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "xl": "40px",
+                        "unit": "4px",
+                        "margin": "24px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Libre Franklin"],
+                        "body-sm": ["Inter"],
+                        "label-mono": ["JetBrains Mono"],
+                        "headline-md": ["Libre Franklin"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "label-mono": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Libre+Franklin:wght@600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+        body {
+            background-color: #ECECEC;
+            background-image: linear-gradient(to bottom, #f5f5f5 0%, #e0e0e0 100%);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .recessed-well {
+            background: #e8e8e8;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .jelly-button {
+            background: linear-gradient(180deg, #3399ff 0%, #005bb1 100%);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 2px 4px rgba(0, 0, 0, 0.15);
+            border: 1px solid #00468b;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+        .jelly-button::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 50%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%);
+            border-radius: 9999px 9999px 0 0;
+        }
+        .aqua-slider {
+            -webkit-appearance: none;
+            width: 100%; height: 8px;
+            background: #d1d5db; border-radius: 4px; outline: none;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.15);
+        }
+        .aqua-slider::-webkit-slider-thumb {
+            -webkit-appearance: none; appearance: none;
+            width: 20px; height: 20px; border-radius: 50%;
+            background: linear-gradient(180deg, #fff 0%, #e5e7eb 100%);
+            box-shadow: inset 0 -1px 1px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.15);
+            border: 1px solid #9ca3af; cursor: pointer;
+        }
+        .candy-stripe-progress {
+            background-color: #00873b;
+            background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+            background-size: 20px 20px;
+            animation: moveStripes 1s linear infinite;
+        }
+        @keyframes moveStripes { 0% { background-position: 0 0; } 100% { background-position: 20px 0; } }
+</style>
+</head>
+<body class="p-lg font-body-lg text-body-lg text-on-surface min-h-screen">
+<main class="h-full">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg h-full">
+<!-- Column 1: Data Manager -->
+<div class="glass-panel rounded-md flex flex-col p-md gap-md">
+<h2 class="font-headline-md text-headline-md text-on-surface border-b border-black/10 pb-sm mb-sm" data-i18n="title_data_manager">Data Manager</h2>
+<div class="recessed-well flex-1 rounded-DEFAULT p-md flex flex-col items-center justify-center border border-white/50 relative group overflow-hidden">
+<div class="absolute inset-0 border-2 border-dashed border-primary/30 rounded-DEFAULT m-2 pointer-events-none group-hover:border-primary/60 transition-colors"></div>
+<span class="material-symbols-outlined text-[48px] text-primary/50 mb-sm">upload_file</span>
+<p class="font-body-lg text-on-surface-variant text-center"><span data-i18n="drop_md_files">Drop .md files here</span><br><span class="font-label-mono text-label-mono opacity-70" data-i18n="click_to_browse">or click to browse</span></p>
+</div>
+<div class="recessed-well h-64 rounded-DEFAULT p-sm border border-white/50 overflow-y-auto font-label-mono text-label-mono">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-black/10 text-on-surface-variant text-[11px]">
+<th class="pb-xs pl-xs" data-i18n="col_file">File</th>
+<th class="pb-xs text-right pr-xs" data-i18n="col_tokens">Tokens</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-black/5 text-[12px]">
+<tr>
+<td class="py-xs pl-xs font-medium flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-primary">description</span> dataset_01.md</td>
+<td class="py-xs text-right pr-xs text-secondary">1.2M</td>
+</tr>
+<tr>
+<td class="py-xs pl-xs font-medium flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-primary">description</span> custom_docs.md</td>
+<td class="py-xs text-right pr-xs text-secondary">450K</td>
+</tr>
+<tr>
+<td class="py-xs pl-xs font-medium flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-primary">description</span> instruction_pairs.md</td>
+<td class="py-xs text-right pr-xs text-secondary">890K</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Column 2: Training Config -->
+<div class="glass-panel rounded-md flex flex-col p-md gap-md">
+<h2 class="font-headline-md text-headline-md text-on-surface border-b border-black/10 pb-sm mb-sm" data-i18n="title_training_config">Training Config</h2>
+<div class="flex-1 flex flex-col gap-lg overflow-y-auto pr-sm">
+<!-- Sliders -->
+<div class="flex flex-col gap-sm">
+<div class="flex justify-between items-center font-label-mono text-label-mono">
+<span class="text-on-surface font-semibold">LoRA Rank (r)</span>
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-primary font-bold">16</span>
+</div>
+<input class="aqua-slider" max="64" min="4" type="range" value="16">
+</div>
+<div class="flex flex-col gap-sm">
+<div class="flex justify-between items-center font-label-mono text-label-mono">
+<span class="text-on-surface font-semibold">LoRA Alpha (α)</span>
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-primary font-bold">32</span>
+</div>
+<input class="aqua-slider" max="128" min="8" type="range" value="32">
+</div>
+<div class="flex flex-col gap-sm">
+<div class="flex justify-between items-center font-label-mono text-label-mono">
+<span class="text-on-surface font-semibold">Learning Rate</span>
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-primary font-bold">2e-4</span>
+</div>
+<input class="aqua-slider" max="100" min="1" type="range" value="20">
+</div>
+<div class="flex flex-col gap-sm">
+<div class="flex justify-between items-center font-label-mono text-label-mono">
+<span class="text-on-surface font-semibold">Epochs</span>
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-primary font-bold">3</span>
+</div>
+<input class="aqua-slider" max="10" min="1" type="range" value="3">
+</div>
+</div>
+<button id="start-finetuning-btn" class="w-full jelly-button text-on-primary font-display-lg text-[18px] font-bold py-sm rounded-lg shadow-md mt-auto flex justify-center items-center gap-3 group">
+<span class="material-symbols-outlined text-[24px] group-hover:scale-110 transition-transform">bolt</span>
+                        <span data-i18n="btn_start_finetuning">START FINE-TUNING</span>
+                    </button>
+</div>
+<!-- Column 3: Real-time Monitor -->
+<div class="glass-panel rounded-md flex flex-col p-md gap-md">
+<h2 class="font-headline-md text-headline-md text-on-surface border-b border-black/10 pb-sm mb-sm" data-i18n="title_monitor">Monitor</h2>
+<div class="flex-1 flex flex-col gap-md">
+<!-- Loss Chart -->
+<div class="recessed-well rounded-DEFAULT p-sm flex-1 flex flex-col border border-white/50">
+<span class="font-label-mono text-[10px] text-on-surface-variant mb-xs" data-i18n="label_training_loss">Training Loss</span>
+<div class="flex-1 w-full relative flex items-center justify-center">
+<svg class="w-full h-full overflow-visible" viewBox="0 0 200 100">
+<path d="M 10 20 Q 50 80, 100 85 T 190 88" fill="none" stroke="#005bb1" stroke-linecap="round" stroke-width="3"></path>
+<circle cx="190" cy="88" fill="#6bff8f" r="4" stroke="#006b2d" stroke-width="1.5"></circle>
+</svg>
+</div>
+</div>
+<!-- VRAM Usage -->
+<div class="recessed-well rounded-DEFAULT p-sm flex flex-col gap-xs border border-white/50">
+<div class="flex justify-between items-center font-label-mono text-[11px]">
+<span class="text-on-surface-variant" data-i18n="label_vram_usage">VRAM Usage</span>
+<span class="text-tertiary font-bold">18.4GB / 24GB</span>
+</div>
+<div class="w-full h-3 bg-surface-container-highest rounded-full overflow-hidden p-0.5 border border-black/10">
+<div class="candy-stripe-progress h-full w-[76%] rounded-full"></div>
+</div>
+</div>
+<!-- Terminal Log -->
+<div class="recessed-well rounded-DEFAULT p-sm h-36 border border-white/50 font-label-mono text-[11px] bg-inverse-surface text-on-tertiary-container overflow-y-auto flex flex-col gap-1">
+<div class="text-tertiary-fixed opacity-90">&gt; Initializing Local Engine v1.0...</div>
+<div class="opacity-70">&gt; Loading base model weights (8B)...</div>
+<div class="opacity-70">&gt; Allocating VRAM buffers... [OK]</div>
+<div class="opacity-70">&gt; Ready for fine-tuning.</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script src="../assets/js/i18n.js"></script>
+<script src="../assets/js/app.js"></script>
+</body></html>

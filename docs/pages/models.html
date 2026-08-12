@@ -1,0 +1,210 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Fine-apple - Model Repository</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#6bff8f",
+                        "inverse-surface": "#2f3131",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#c6c6c6",
+                        "outline-variant": "#c1c6d5",
+                        "surface-container-low": "#f4f3f3",
+                        "surface-container": "#eeeeee",
+                        "on-primary-container": "#fefcff",
+                        "on-surface-variant": "#414753",
+                        "tertiary": "#006b2d",
+                        "primary": "#005bb1",
+                        "on-surface": "#1a1c1c",
+                        "surface-dim": "#dadada",
+                        "on-tertiary-fixed-variant": "#005321",
+                        "background": "#f9f9f9",
+                        "tertiary-fixed-dim": "#4ae176",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "primary-fixed": "#d6e3ff",
+                        "on-primary-fixed": "#001b3d",
+                        "on-tertiary-fixed": "#002109",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-tertiary": "#ffffff",
+                        "outline": "#717784",
+                        "secondary": "#5d5e5f",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#e2e2e2",
+                        "on-secondary-fixed-variant": "#454747",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e2e2e2",
+                        "on-primary-fixed-variant": "#00468b",
+                        "surface": "#f9f9f9",
+                        "surface-tint": "#005db6",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#a9c7ff",
+                        "on-tertiary-container": "#f7fff3",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#00873b",
+                        "on-secondary-container": "#636465",
+                        "secondary-fixed": "#e2e2e2",
+                        "primary-container": "#0973dd",
+                        "surface-bright": "#f9f9f9",
+                        "surface-container-high": "#e8e8e8",
+                        "inverse-primary": "#a9c7ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "12px",
+                        "md": "16px",
+                        "lg": "20px",
+                        "xl": "24px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "20px",
+                        "sm": "8px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "xl": "40px",
+                        "unit": "4px",
+                        "margin": "24px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Libre Franklin"],
+                        "body-sm": ["Inter"],
+                        "label-mono": ["JetBrains Mono"],
+                        "headline-md": ["Libre Franklin"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "label-mono": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Libre+Franklin:wght@600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+        body {
+            background-color: #ECECEC;
+            background-image: linear-gradient(to bottom, #f5f5f5 0%, #e0e0e0 100%);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .recessed-well {
+            background: #e8e8e8;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .jelly-btn {
+            background: linear-gradient(180deg, #3399ff 0%, #005bb1 100%);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 2px 4px rgba(0, 0, 0, 0.15);
+            border: 1px solid #00468b;
+            transition: all 0.2s ease;
+        }
+        .glossy-row-active {
+            background: linear-gradient(180deg, rgba(214, 227, 255, 0.7) 0%, rgba(169, 199, 255, 0.5) 100%);
+            border-bottom: 1px solid rgba(0, 91, 177, 0.2);
+        }
+</style>
+</head>
+<body class="p-lg font-body-lg text-body-lg text-on-surface min-h-screen">
+<main class="h-full flex flex-col">
+<div class="glass-panel flex-1 flex flex-col overflow-hidden rounded-[16px]">
+<div class="px-lg py-md border-b border-white/30 flex justify-between items-end bg-gradient-to-b from-white/40 to-transparent">
+<div>
+<h1 class="font-display-lg text-[36px] font-bold text-on-surface mb-1" data-i18n="title_model_repository">Model Repository</h1>
+<p class="font-body-sm text-[13px] text-on-surface-variant" data-i18n="desc_model_repository">Manage local and remote base models for fine-tuning.</p>
+</div>
+</div>
+<div class="flex-1 p-md overflow-y-auto">
+<div class="recessed-well rounded-[12px] overflow-hidden h-full flex flex-col">
+<!-- Table Header -->
+<div class="bg-gradient-to-b from-surface-dim to-secondary-fixed border-b border-white/50 px-md py-sm flex items-center text-on-surface-variant font-label-mono text-[11px] sticky top-0 z-10 shadow-sm">
+<div class="w-10"></div>
+<div class="flex-1">Model Name</div>
+<div class="w-32">Size</div>
+<div class="w-32">Status</div>
+<div class="w-40 text-right">Actions</div>
+</div>
+<!-- Table Body -->
+<div class="flex-1 overflow-y-auto divide-y divide-white/20 bg-[#f4f4f4]">
+<!-- Row 1 (Active/Selected) -->
+<div class="px-md py-3 flex items-center glossy-row-active cursor-pointer transition-colors">
+<div class="w-10 flex justify-center">
+<span class="material-symbols-outlined text-primary text-[20px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">view_in_ar</span>
+</div>
+<div class="flex-1">
+<div class="font-headline-md text-[15px] text-on-surface">Llama-3-8B-Instruct</div>
+<div class="font-label-mono text-[10px] text-on-surface-variant mt-0.5">Meta • text-generation</div>
+</div>
+<div class="w-32 font-label-mono text-[11px] text-on-surface-variant">4.7 GB</div>
+<div class="w-32">
+<span class="bg-gradient-to-b from-tertiary-fixed-dim to-tertiary text-on-tertiary px-2 py-1 rounded-[12px] font-label-mono text-[10px] shadow-sm border border-white/30 inline-flex items-center gap-xs">
+<span class="material-symbols-outlined text-[12px]">download_done</span> Local
+                                </span>
+</div>
+<div class="w-40 flex justify-end gap-sm">
+<button class="jelly-btn text-on-primary px-3 py-1.5 rounded-[16px] font-label-mono text-[11px]">Use Model</button>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="px-md py-3 flex items-center hover:bg-white/40 cursor-pointer transition-colors border-t border-transparent">
+<div class="w-10 flex justify-center">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">view_in_ar</span>
+</div>
+<div class="flex-1">
+<div class="font-headline-md text-[15px] text-on-surface">Mistral-7B-v0.3</div>
+<div class="font-label-mono text-[10px] text-on-surface-variant mt-0.5">Mistral AI • text-generation</div>
+</div>
+<div class="w-32 font-label-mono text-[11px] text-on-surface-variant">4.1 GB</div>
+<div class="w-32">
+<span class="bg-gradient-to-b from-surface-dim to-secondary text-on-primary px-2 py-1 rounded-[12px] font-label-mono text-[10px] shadow-sm border border-white/30 inline-flex items-center gap-xs">
+<span class="material-symbols-outlined text-[12px]">cloud</span> Remote
+                                </span>
+</div>
+<div class="w-40 flex justify-end gap-sm">
+<button class="bg-gradient-to-b from-surface-bright to-surface-variant border border-white/50 shadow-sm px-3 py-1.5 rounded-[16px] font-label-mono text-[11px] text-on-surface hover:brightness-95 transition-all">Download</button>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="px-md py-3 flex items-center hover:bg-white/40 cursor-pointer transition-colors border-t border-transparent">
+<div class="w-10 flex justify-center">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">view_in_ar</span>
+</div>
+<div class="flex-1">
+<div class="font-headline-md text-[15px] text-on-surface">Gemma-2B-IT</div>
+<div class="font-label-mono text-[10px] text-on-surface-variant mt-0.5">Google • text-generation</div>
+</div>
+<div class="w-32 font-label-mono text-[11px] text-on-surface-variant">1.7 GB</div>
+<div class="w-32">
+<span class="bg-gradient-to-b from-tertiary-fixed-dim to-tertiary text-on-tertiary px-2 py-1 rounded-[12px] font-label-mono text-[10px] shadow-sm border border-white/30 inline-flex items-center gap-xs">
+<span class="material-symbols-outlined text-[12px]">download_done</span> Local
+                                </span>
+</div>
+<div class="w-40 flex justify-end gap-sm">
+<button class="jelly-btn text-on-primary px-3 py-1.5 rounded-[16px] font-label-mono text-[11px]">Use Model</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script src="../assets/js/i18n.js"></script>
+<script src="../assets/js/app.js"></script>
+</body></html>
