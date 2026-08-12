@@ -1,6 +1,7 @@
 /**
  * Fine-apple i18n Engine (v2.1)
  * Manages EN/KO translations using data-i18n attributes while keeping technical terms intact.
+ * Default language: English ("en").
  */
 
 (function () {
@@ -117,7 +118,8 @@
     }
   };
 
-  let currentLang = localStorage.getItem("fine_apple_lang") || "ko";
+  // Default language is "en"
+  let currentLang = localStorage.getItem("fine_apple_lang") || "en";
 
   function applyLanguage(lang) {
     currentLang = lang;
@@ -140,6 +142,16 @@
     langBtns.forEach((btn) => {
       btn.innerText = translations[lang]["lang_btn"] || (lang === "ko" ? "한 / 영" : "EN / KO");
     });
+
+    // Notify iframe if present
+    const iframe = document.getElementById("content");
+    if (iframe && iframe.contentWindow && iframe.contentWindow.FineAppleI18n) {
+      try {
+        iframe.contentWindow.FineAppleI18n.applyLanguage(lang);
+      } catch (err) {
+        // Cross-origin fallback safety
+      }
+    }
   }
 
   function toggleLanguage() {
@@ -149,11 +161,23 @@
 
   window.addEventListener("DOMContentLoaded", () => {
     applyLanguage(currentLang);
+
     document.addEventListener("click", (e) => {
       if (e.target && (e.target.classList.contains("lang-toggle-btn") || e.target.closest(".lang-toggle-btn"))) {
         toggleLanguage();
       }
     });
+
+    const iframe = document.getElementById("content");
+    if (iframe) {
+      iframe.addEventListener("load", () => {
+        if (iframe.contentWindow && iframe.contentWindow.FineAppleI18n) {
+          try {
+            iframe.contentWindow.FineAppleI18n.applyLanguage(currentLang);
+          } catch (err) {}
+        }
+      });
+    }
   });
 
   window.FineAppleI18n = {
