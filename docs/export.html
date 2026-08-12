@@ -1,4 +1,12 @@
 <!DOCTYPE html><html class="light" lang="en" style=""><head>
+<script>
+  if (window.innerWidth < 768) {
+    var page = window.location.pathname.split('/').pop() || 'export.html';
+    var mobilePage = page.replace('.html', '_mobile.html');
+    if (!mobilePage.endsWith('_mobile.html')) mobilePage = 'export_mobile.html';
+    window.location.replace(mobilePage);
+  }
+</script>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Fine-Tuner Pro - Deploy &amp; Export</title>
@@ -244,7 +252,7 @@
                     New Experiment
                 </button>
 </div>
-<ul class="flex-1 overflow-y-auto font-body-lg text-body-lg"><li class="px-md my-xs"><a class="text-on-surface-variant flex items-center px-4 py-2 hover:bg-white/60 dark:hover:bg-black/20 rounded-lg transition-colors gap-3 text-[16px]" href="#"><span class="material-symbols-outlined text-[24px]">deployed_code</span>Models</a></li><li class="px-md my-xs"><a class="text-on-surface-variant flex items-center px-4 py-2 hover:bg-white/60 dark:hover:bg-black/20 rounded-lg transition-colors gap-3 text-[16px]" href="#"><span class="material-symbols-outlined text-[24px]">psychology</span>Training</a></li><li class="px-md my-xs"><a class="text-on-surface-variant flex items-center px-4 py-2 hover:bg-white/60 dark:hover:bg-black/20 rounded-lg transition-colors gap-3 text-[16px]" href="#"><span class="material-symbols-outlined text-[24px]">database</span>Datasets</a></li><li class="px-md my-xs"><a class="bg-gradient-to-b from-primary-container to-primary text-on-primary-container shadow-[inset_0_1px_2px_rgba(255,255,255,0.3)] rounded-lg flex items-center px-4 py-2 gap-3 font-bold transition-all text-[16px]" href="#"><span class="material-symbols-outlined text-[24px]">rocket_launch</span>Deploy</a></li></ul>
+<ul class="flex-1 overflow-y-auto font-body-lg text-body-lg"><li class="px-md my-xs"><a class="text-on-surface-variant flex items-center px-4 py-2 hover:bg-white/60 dark:hover:bg-black/20 rounded-lg transition-colors gap-3 text-[16px]" href="models.html"><span class="material-symbols-outlined text-[24px]">deployed_code</span>Models</a></li><li class="px-md my-xs"><a class="text-on-surface-variant flex items-center px-4 py-2 hover:bg-white/60 dark:hover:bg-black/20 rounded-lg transition-colors gap-3 text-[16px]" href="index.html"><span class="material-symbols-outlined text-[24px]">psychology</span>Training</a></li><li class="px-md my-xs"><a class="text-on-surface-variant flex items-center px-4 py-2 hover:bg-white/60 dark:hover:bg-black/20 rounded-lg transition-colors gap-3 text-[16px]" href="knowledge.html"><span class="material-symbols-outlined text-[24px]">database</span>Datasets</a></li><li class="px-md my-xs"><a class="bg-gradient-to-b from-primary-container to-primary text-on-primary-container shadow-[inset_0_1px_2px_rgba(255,255,255,0.3)] rounded-lg flex items-center px-4 py-2 gap-3 font-bold transition-all text-[16px]" href="export.html"><span class="material-symbols-outlined text-[24px]">rocket_launch</span>Deploy</a></li></ul>
 <div class="mt-auto border-t border-black/5 pt-md">
 <ul class="font-label-mono text-label-mono">
 <li class="px-md my-xs">
@@ -386,7 +394,7 @@
 </div>
 <!-- Footer -->
 <footer class="bg-surface-container-lowest/80 dark:bg-inverse-surface/80 text-tertiary dark:text-tertiary-fixed font-label-mono text-label-mono fixed bottom-0 w-full h-8 backdrop-blur-sm border-t border-white/20 flex justify-between items-center px-lg z-50">
-<div class="text-on-secondary-fixed-variant">© 2024 HONUP Builder</div>
+<div class="text-on-secondary-fixed-variant">© 2026 Fine-apple</div>
 <div class="flex gap-md">
 <a class="text-on-secondary-fixed-variant hover:text-primary transition-colors" href="#">Documentation</a>
 <a class="text-on-secondary-fixed-variant hover:text-primary transition-colors" href="#">System Status</a>

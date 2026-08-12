@@ -1,4 +1,12 @@
 <!DOCTYPE html><html class="light" lang="en" style=""><head>
+<script>
+  if (window.innerWidth >= 768) {
+    var page = window.location.pathname.split('/').pop() || 'export_mobile.html';
+    var desktopPage = page.replace('_mobile.html', '.html');
+    if (desktopPage === 'export_mobile.html') desktopPage = 'export.html';
+    window.location.replace(desktopPage);
+  }
+</script>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Fine-apple Studio - Deploy</title>
@@ -359,24 +367,28 @@
 </div>
 </section>
 <footer class="text-center py-md opacity-60">
-<p class="font-label-mono text-[10px]">© 2024 HONUP Builder</p>
+<p class="font-label-mono text-[10px]">© 2026 Fine-apple</p>
 </footer>
 </main>
-<!-- BottomNavBar -->
+<!-- BottomNavBar (Menu Order: Models -> Training -> Datasets -> Deploy) -->
 <nav class="fixed bottom-0 w-full flex justify-around items-center px-margin py-sm z-50 bg-white/80 backdrop-blur-lg dark:bg-surface-dim/80 docked full-width rounded-t-lg border-t border-white/40 shadow-[0_-4px_12px_rgba(0,0,0,0.08)] md:hidden">
-<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-white/20 active:scale-90 transition-all duration-200" href="#">
+<!-- Models -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-white/20 active:scale-90 transition-all duration-200" href="models_mobile.html">
 <span class="material-symbols-outlined" data-icon="database">database</span>
 <span class="font-label-mono text-label-mono mt-1 text-[10px]">Models</span>
 </a>
-<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-white/20 active:scale-90 transition-all duration-200" href="#">
-<span class="material-symbols-outlined" data-icon="dataset">dataset</span>
-<span class="font-label-mono text-label-mono mt-1 text-[10px]">Datasets</span>
-</a>
-<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-white/20 active:scale-90 transition-all duration-200" href="#">
+<!-- Training -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-white/20 active:scale-90 transition-all duration-200" href="index_mobile.html">
 <span class="material-symbols-outlined" data-icon="model_training">model_training</span>
 <span class="font-label-mono text-label-mono mt-1 text-[10px]">Training</span>
 </a>
-<a class="flex flex-col items-center justify-center bg-gradient-to-b from-tertiary-fixed-dim to-tertiary-container text-on-tertiary-container rounded-xl p-2 shadow-inner active:scale-90 transition-all duration-200" href="#">
+<!-- Datasets -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-white/20 active:scale-90 transition-all duration-200" href="knowledge_mobile.html">
+<span class="material-symbols-outlined" data-icon="dataset">dataset</span>
+<span class="font-label-mono text-label-mono mt-1 text-[10px]">Datasets</span>
+</a>
+<!-- Deploy (Active) -->
+<a class="flex flex-col items-center justify-center bg-gradient-to-b from-tertiary-fixed-dim to-tertiary-container text-on-tertiary-container rounded-xl p-2 shadow-inner active:scale-90 transition-all duration-200" href="export_mobile.html">
 <span class="material-symbols-outlined" data-icon="rocket_launch" data-weight="fill" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
 <span class="font-label-mono text-label-mono mt-1 text-[10px] font-bold">Deploy</span>
 </a>

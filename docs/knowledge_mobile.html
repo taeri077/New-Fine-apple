@@ -1,4 +1,12 @@
 <!DOCTYPE html><html class="light" lang="en" style=""><head>
+<script>
+  if (window.innerWidth >= 768) {
+    var page = window.location.pathname.split('/').pop() || 'knowledge_mobile.html';
+    var desktopPage = page.replace('_mobile.html', '.html');
+    if (desktopPage === 'knowledge_mobile.html') desktopPage = 'knowledge.html';
+    window.location.replace(desktopPage);
+  }
+</script>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Fine-apple Studio - Dataset Manager</title>
@@ -270,29 +278,31 @@
 </div>
 </main>
 <footer class="text-center py-md mt-auto">
-<p class="font-label-mono text-label-mono text-outline">© 2024 HONUP Builder</p>
+<p class="font-label-mono text-label-mono text-outline">© 2026 Fine-apple</p>
 </footer>
-<!-- BottomNavBar -->
+<!-- BottomNavBar (Menu Order: Models -> Training -> Datasets -> Deploy) -->
 <nav class="fixed bottom-0 w-full flex justify-around items-center px-margin py-sm z-50 bg-white/80 backdrop-blur-lg dark:bg-surface-dim/80 docked full-width bottom-0 rounded-t-lg shadow-lg border-t border-white/40 shadow-[0_-4px_12px_rgba(0,0,0,0.08)] md:hidden">
-<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-white/20 active:scale-90 transition-all duration-200">
+<!-- Models -->
+<a href="models_mobile.html" class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-white/20 active:scale-90 transition-all duration-200">
 <span class="material-symbols-outlined text-2xl mb-1" data-icon="database">database</span>
 <span class="font-label-mono text-[10px]">Models</span>
-</button>
-<!-- Active Tab: Datasets -->
-<button class="flex flex-col items-center justify-center bg-gradient-to-b from-tertiary-fixed-dim to-tertiary-container text-on-tertiary-container rounded-xl p-2 shadow-inner active:scale-90 transition-all duration-200 relative overflow-hidden">
-<!-- Glossy highlight for active nav pill -->
+</a>
+<!-- Training -->
+<a href="index_mobile.html" class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-white/20 active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="model_training">model_training</span>
+<span class="font-label-mono text-[10px]">Training</span>
+</a>
+<!-- Datasets (Active) -->
+<a href="knowledge_mobile.html" class="flex flex-col items-center justify-center bg-gradient-to-b from-tertiary-fixed-dim to-tertiary-container text-on-tertiary-container rounded-xl p-2 shadow-inner active:scale-90 transition-all duration-200 relative overflow-hidden">
 <div class="absolute inset-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent pointer-events-none"></div>
 <span class="material-symbols-outlined text-2xl mb-1 drop-shadow" data-icon="dataset">dataset</span>
 <span class="font-label-mono text-[10px] font-bold drop-shadow">Datasets</span>
-</button>
-<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-white/20 active:scale-90 transition-all duration-200">
-<span class="material-symbols-outlined text-2xl mb-1" data-icon="model_training">model_training</span>
-<span class="font-label-mono text-[10px]">Training</span>
-</button>
-<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-white/20 active:scale-90 transition-all duration-200">
+</a>
+<!-- Deploy -->
+<a href="export_mobile.html" class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-white/20 active:scale-90 transition-all duration-200">
 <span class="material-symbols-outlined text-2xl mb-1" data-icon="rocket_launch">rocket_launch</span>
 <span class="font-label-mono text-[10px]">Deploy</span>
-</button>
+</a>
 </nav>
 
 
