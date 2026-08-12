@@ -59,7 +59,7 @@
       "title_export_status": "Export Status",
 
       // Common
-      "lang_btn": "EN / KO"
+      "lang_btn": "EN"
     },
     ko: {
       // Header & Navigation
@@ -114,7 +114,7 @@
       "title_export_status": "내보내기 진행 상태",
 
       // Common
-      "lang_btn": "한 / 영"
+      "lang_btn": "KO"
     }
   };
 
@@ -140,7 +140,7 @@
 
     const langBtns = document.querySelectorAll(".lang-toggle-btn");
     langBtns.forEach((btn) => {
-      btn.innerText = translations[lang]["lang_btn"] || (lang === "ko" ? "한 / 영" : "EN / KO");
+      btn.innerText = translations[lang]["lang_btn"] || (lang === "ko" ? "KO" : "EN");
     });
 
     // Notify iframe if present
