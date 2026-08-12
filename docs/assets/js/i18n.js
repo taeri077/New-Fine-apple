@@ -145,9 +145,9 @@
 
     // Notify iframe if present
     const iframe = document.getElementById("content");
-    if (iframe && iframe.contentWindow && iframe.contentWindow.FineAppleI18n) {
+    if (iframe && iframe.contentWindow) {
       try {
-        iframe.contentWindow.FineAppleI18n.applyLanguage(lang);
+        iframe.contentWindow.postMessage({type:"setLang", lang:lang}, "*");
       } catch (err) {
         // Cross-origin fallback safety
       }
@@ -171,9 +171,9 @@
     const iframe = document.getElementById("content");
     if (iframe) {
       iframe.addEventListener("load", () => {
-        if (iframe.contentWindow && iframe.contentWindow.FineAppleI18n) {
+        if (iframe.contentWindow) {
           try {
-            iframe.contentWindow.FineAppleI18n.applyLanguage(currentLang);
+            iframe.contentWindow.postMessage({type:"setLang", lang:currentLang}, "*");
           } catch (err) {}
         }
       });

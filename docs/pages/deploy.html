@@ -188,4 +188,11 @@ http://localhost:1234/v1 • Q4_K_M • 4.8 GB
 </main>
 <script src="../assets/js/i18n.js"></script>
 <script src="../assets/js/app.js"></script>
+<script>
+window.addEventListener("message", function(e) {
+  if (e.data && e.data.type === "setLang" && window.FineAppleI18n) {
+    window.FineAppleI18n.applyLanguage(e.data.lang);
+  }
+});
+</script>
 </body></html>
